@@ -1,0 +1,24 @@
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>IP</th>
+            <th>Read</th>
+            <th>Spam</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+        <tr>
+            <td>{{ item.first_name }}</td>
+            <td>{{ item.last_name }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.ip }}</td>
+            <td><a href="{% url 'message' pk=item.pk %}"><button>Read</button></a></td>
+            <td><form action="" method="POST">{% csrf_token %}<input type="hidden" name="email" value="{{item.email}}"><input type="hidden" name="ip_address" value="{{ item.ip_address }}"><button type="submit">Spam</button> </form></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

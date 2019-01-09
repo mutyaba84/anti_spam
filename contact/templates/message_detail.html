@@ -1,0 +1,8 @@
+<p>{{ item.first_name }}</p>
+<p>{{ item.last_name }}</p>
+<p>{{ item.email }}</p>
+<p>{{ item.ip_address }}</p>
+{{ item.message }}
+
+<p><form action="" method="POST">{% csrf_token %}<input type="hidden" name="email" value="{{item.email}}"><input type="hidden" name="ip_address" value="{{ item.ip_address }}"><button class="btn btn-danger" type="submit">Spam</button> </form></p>
+<p><a href="{% url 'add_spam_word' pk=item.pk %}"><button>Add Spam Words</button></a></p>

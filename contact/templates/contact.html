@@ -1,0 +1,14 @@
+{% if messages %}
+    {% for massage in massages %}
+      <div>
+	      <strong>{{ message }}</strong>
+      </div>
+    {% endfor %}
+{% else %}
+<form method="post">
+	{% csrf_token %} 
+	{{ form.as_p }}
+	<button type="submit">Send</button>	
+</form>
+{% endif %} 
+
